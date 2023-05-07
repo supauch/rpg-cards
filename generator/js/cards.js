@@ -320,6 +320,17 @@ function card_element_bullet(params, card_data, options) {
     result += '</ul>';
     return result;
 }
+// nevans 05/23
+function card_element_bold_bullet(params, card_data, options) {
+    var card_font_size_class = card_size_class(card_data, options);
+
+    var result = "";
+    result += '<ul class="card-element card-bold-bullet-line' + card_font_size_class + '">';
+    result += '   <li class="card-bold-bullet-name">' + params[0] + '</li>';
+    result += '   <p class="card-p card-bold-bullet-text">' + params[1] + '</p>';
+    result += '</ul>';
+    return result;
+}
 
 function card_element_section(params, card_data, options) {
     var color = card_data_color_front(card_data, options);
@@ -366,7 +377,8 @@ var card_element_generators = {
     section: card_element_section,
     disabled: card_element_empty,
     picture: card_element_picture,
-    icon: card_element_inline_icon
+    icon: card_element_inline_icon,
+    boldbullet: card_element_bold_bullet
 };
 
 // ============================================================================
