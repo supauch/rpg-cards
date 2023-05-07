@@ -344,6 +344,16 @@ function card_element_bold_bullet(params, card_data, options) {
     result += '</ul>';
     return result;
 }
+function card_element_bold_side_bullet(params, card_data, options) {
+    var card_font_size_class = card_size_class(card_data, options);
+
+    var result = "";
+    result += '<ul class="card-element card-side-bullet-line' + card_font_size_class + '">';
+    result += '   <li class="card-side-bullet-name">' + params[0] + '</li>';
+    result += '   <li class="card-p card-side-bullet-text">' + params[1] + '</li>';
+    result += '</ul>';
+    return result;
+}
 
 function card_element_section(params, card_data, options) {
     var color = card_data_color_front(card_data, options);
@@ -392,7 +402,8 @@ var card_element_generators = {
     disabled: card_element_empty,
     picture: card_element_picture,
     icon: card_element_inline_icon,
-    boldbullet: card_element_bold_bullet
+    boldbullet: card_element_bold_bullet,
+    sidebullet: card_element_bold_side_bullet
 };
 
 // ============================================================================

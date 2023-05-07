@@ -317,3 +317,28 @@
     font-size: inherit;
     padding-left: .5em;
 }
+
+.card-side-bullet-line {
+    color: black;
+    padding-left: 20px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+}
+
+.card-side-bullet-name {
+    margin-bottom: 0;
+    margin-top: 0;
+    font-size: inherit;
+    font-weight: bold;
+}
+
+.card-side-bullet-text {
+    display: inline-block;
+    margin-bottom: 0;
+    margin-top: 0;
+    font-size: inherit;
+    margin-left: 3px; /* add some spacing between name and text */
+}
