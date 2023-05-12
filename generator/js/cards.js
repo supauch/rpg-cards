@@ -211,6 +211,24 @@ function card_element_property(params, card_data, options) {
     return result;
 }
 
+function card_element_ulproperty(params, card_data, options) {
+    var card_font_size_class = card_size_class(card_data, options);
+
+    var result = "";
+    result += '<div class="card-element card-ulproperty-line' + card_font_size_class + '">';
+    result += '   <h4 class="card-ulproperty-name">' + params[0] + '</h4>';
+    result += '   <p class="card-p card-ulproperty-text">' + params[1] + '</p>';
+	if (params[2])
+	{
+		result += '   <div style="float:right">';
+		result += '       <h4 class="card-ulproperty-name">' + params[2] + '</h4>';
+		result += '       <p class="card-p card-ulproperty-text">' + params[3] + '</p>';
+		result += '   </div>';
+	}
+    result += '</div>';
+    return result;
+}
+
 function card_element_description(params, card_data, options) {
     var element_class = card_element_class(card_data, options);
 
@@ -344,16 +362,70 @@ function card_element_bold_bullet(params, card_data, options) {
     result += '</ul>';
     return result;
 }
+
 function card_element_bold_side_bullet(params, card_data, options) {
     var card_font_size_class = card_size_class(card_data, options);
 
     var result = "";
-    result += '<ul class="card-element card-side-bullet-line' + card_font_size_class + '">';
-    result += '   <li class="card-side-bullet-name">' + params[0] + '</li>';
-    result += '   <li class="card-p card-side-bullet-text">' + params[1] + '</li>';
-    result += '</ul>';
+    result += '<div class="card-element card-side-bullet-line' + card_font_size_class + '">';
+    result += '   <h4 class="card-side-bullet-name">' + params[0] + '</h4>';
+    result += '   <p class="card-p card-side-bullet-text">' + params[1] + '</p>';
+    result += '</div>';
     return result;
 }
+
+
+function card_element_detail_list(params, card_data, options) {
+    var card_font_size_class = card_size_class(card_data, options);
+
+    var result = "";
+    result += '<dl class="card-element card-det-list-line' + card_font_size_class + '">';
+    result += '<dt class="card-det-list-name">' + params[0] + '</dt>';
+    result += ' <dt class="card-det-list-title">' + params[1] + '</dt>';
+    let i = 2;
+    while(i < params.length) {
+        result += ' <dd class="card-det-list-text">' + params[i] + '</dd>';
+        i++;
+    }
+    result += '</dl>';
+    return result;
+}
+
+function card_element_descrip_list(params, card_data, options) {
+    var card_font_size_class = card_size_class(card_data, options);
+
+    var result = "";
+    result += '<dl class="card-element card-desc-list-line' + card_font_size_class + '">';
+    result += '<dt class="card-desc-list-name">' + params[0] + '</dt>';
+    result += '<dt class="card-desc-list-title">' + params[1] + '</dt>';
+    let i = 2;
+    while(i < params.length) {
+        result += '<dt class="card-desc-list-name-2">' + params[i] + '</dt>';
+        result += '<dd class="card-desc-list-text">' + params[i+1] + '</dd>';
+        i++;
+        i++;
+    }
+    result += '</dl>';
+    return result;
+}
+
+function card_element_table(params, card_data, options) {
+    var card_font_size_class = card_size_class(card_data, options);
+
+    var result = "";
+    result += '<table style="margin-left:10px;" class="card-element' + card_font_size_class + '"><tr>';
+    let i = 0;
+    while(i < params.length) {
+        result += ' <td style="width:20%; font-weight:bold">' + params[i] + '</td>';
+        result += ' <td style="width:20%">' + params[i+1] + '</td>';
+        i++;
+        i++;
+    }
+    result += '</tr></table>';
+    return result;
+}
+
+//end nevas 05/23
 
 function card_element_section(params, card_data, options) {
     var color = card_data_color_front(card_data, options);
@@ -386,6 +458,8 @@ function card_element_empty(params, card_data, options) {
 var card_element_generators = {
     subtitle: card_element_subtitle,
     property: card_element_property,
+    ulproperty: card_element_ulproperty,
+    detlist: card_element_detail_list,
     rule: card_element_ruler,
     dottedrule: card_element_dotted_rule,
     ruler: card_element_ruler,
@@ -403,7 +477,9 @@ var card_element_generators = {
     picture: card_element_picture,
     icon: card_element_inline_icon,
     boldbullet: card_element_bold_bullet,
-    sidebullet: card_element_bold_side_bullet
+    sidebullet: card_element_bold_side_bullet,
+    table: card_element_table,
+    desclist : card_element_descrip_list
 };
 
 // ============================================================================

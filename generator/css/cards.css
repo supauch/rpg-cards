@@ -199,11 +199,30 @@
 .card-property-name {
     display: inline;
     font-size: inherit;
-    text-decoration: underline;
 }
 .card-property-text {
     display: inline;
 }
+
+.card-inline-icon.align-center {
+    align-self: center;
+}
+
+.card-ulproperty-line {
+    text-indent: -1em;
+    margin-left: 1em;
+    color: black;
+}
+
+.card-ulproperty-name {
+    display: inline;
+    font-size: inherit;
+    text-decoration: underline;
+}
+.card-ulproperty-text {
+    display: inline;
+}
+
 
 .card-section {
     border-bottom: 1px solid;
@@ -324,8 +343,6 @@
     padding-bottom: 0;
     margin-bottom: 0;
     margin-top: 0;
-    display: flex;
-    align-items: center;
 }
 
 .card-side-bullet-name {
@@ -333,12 +350,96 @@
     margin-top: 0;
     font-size: inherit;
     font-weight: bold;
+    display: inline;
 }
 
 .card-side-bullet-text {
-    display: inline-block;
+    display: inline;
     margin-bottom: 0;
     margin-top: 0;
     font-size: inherit;
-    margin-left: 3px; /* add some spacing between name and text */
 }
+
+.card-det-list-line {
+    color: black;
+    padding-left: 10px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.card-det-list-name {
+    margin-bottom: 0;
+    margin-top: 0;
+    font-size: inherit;
+    font-weight: bold;
+    display: inline;
+}
+
+.card-det-list-title {
+    display: inline;
+    font-weight: normal;
+}
+
+.card-det-list-text {
+    margin-bottom: 0;
+    margin-top: 0;
+    margin-left: 20px;
+    font-size: inherit;
+    display: list-item;
+    list-style-type: disc;
+}
+
+.card-desc-list-line {
+    color: black;
+    padding-left: 10px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.card-desc-list-name {
+    margin-bottom: 0;
+    margin-top: 0;
+    font-size: inherit;
+    font-weight: bold;
+}
+
+.card-desc-list-item {
+    display: flex; /* Add this line */
+}
+
+.card-desc-list-name-2 {
+    margin-bottom: 0;
+    margin-top: 0;
+    font-size: inherit;
+    font-weight: bold;
+    display: inline;
+    white-space: nowrap;
+}
+
+.card-desc-list-name-2::before {
+    content: "•"; /* Use a bullet point as the list item */
+    margin-right: 20px;
+    list-style-type: disc; /* Set the list style type */
+}
+.card-desc-list-title {
+    display: inline;
+    font-weight: normal;
+}
+
+.card-desc-list-text {
+    margin-bottom: 0;
+    margin-top: 0;
+    margin-left: 25px;
+    font-size: inherit;
+    font-weight: normal;
+    display: inline;
+}
+
+
+
+table, th, td {
+    font-size: inherit;
+    color: black;
+  }
