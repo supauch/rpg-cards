@@ -409,7 +409,7 @@ function card_element_descrip_list(params, card_data, options) {
     return result;
 }
 
-function card_element_table(params, card_data, options) {
+function card_element_alt_table(params, card_data, options) {
     var card_font_size_class = card_size_class(card_data, options);
 
     var result = "";
@@ -422,6 +422,80 @@ function card_element_table(params, card_data, options) {
         i++;
     }
     result += '</tr></table>';
+    return result;
+}
+function card_element_head(params, card_data, options) {
+    var card_font_size_class = card_size_class(card_data, options);
+
+    var result = "";
+    result += '<table style="margin-left:10px;" class="card-element' + card_font_size_class + '"><tr>';
+    let i = 0;
+    while(i < params.length) {
+        result += ' <td style="width:20%; font-weight:bold">' + params[i] + '</td>';
+        i++;
+    }
+    result += '</tr></table>';
+    return result;
+}
+
+function card_element_table_head(params, card_data, options) {
+    var card_font_size_class = card_size_class(card_data, options);
+    var table_columns = Number(params[0]);
+    var cnt = 1;
+    var result = "";
+    result += '<table class="card-element' + card_font_size_class + '">';
+    let i = 1;
+    console.log(table_columns);
+    while(i < params.length) {
+        //Header
+        while(cnt <= table_columns){
+            if(cnt == 1) result += "<tr>";
+            result += '<th style="text-align:center">' + params[cnt] + '</th>';
+            if(cnt == (table_columns + 1)) result += "</tr>";
+            cnt++;
+        }
+        if(i == cnt){
+            cnt = 0;
+            result += "<tr>";
+            while(cnt < table_columns)
+            {
+                console.log(cnt+i);
+                result += '<td style="text-align:center">' + params[cnt+i] + '</td>';
+                cnt ++;
+            }
+            result += "</tr>";
+            cnt += i;
+        }
+        i++;
+    }
+    result += '</table>';
+    return result;
+}
+
+function card_element_table(params, card_data, options) {
+    var card_font_size_class = card_size_class(card_data, options);
+    var table_columns = Number(params[0]);
+    var cnt = 1;
+    var result = "";
+    result += '<table style="width:100%" class="card-element' + card_font_size_class + '">';
+    let i = 1;
+    console.log(table_columns);
+    while(i < params.length) {
+        if(i == cnt){
+            cnt = 0;
+            result += "<tr>";
+            while(cnt < table_columns)
+            {
+                console.log(cnt+i);
+                result += '<td style="text-align:center">' + params[cnt+i] + '</td>';
+                cnt ++;
+            }
+            result += "</tr>";
+            cnt += i;
+        }
+        i++;
+    }
+    result += '</table>';
     return result;
 }
 
@@ -478,6 +552,9 @@ var card_element_generators = {
     icon: card_element_inline_icon,
     boldbullet: card_element_bold_bullet,
     sidebullet: card_element_bold_side_bullet,
+    alt_table: card_element_alt_table,
+    head: card_element_head,
+    tablehead: card_element_table_head,
     table: card_element_table,
     desclist : card_element_descrip_list
 };

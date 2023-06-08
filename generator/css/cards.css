@@ -443,3 +443,13 @@ table, th, td {
     font-size: inherit;
     color: black;
   }
+
+  th {
+    border-bottom: .5px solid black;
+
+  }
+
+ td {
+    border-bottom: .5px solid black;
+    width:2%; 
+ }
