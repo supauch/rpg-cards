@@ -215,7 +215,7 @@ function ui_render_selected_card() {
 }
 
 function ui_open_help() {
-    $("#help-modal").modal('show');
+    window.open("https://supauch.github.io/rpgcard_help/");
 }
 
 function ui_select_icon() {
