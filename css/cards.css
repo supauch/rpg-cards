@@ -276,6 +276,15 @@
     stroke: inherit;
 }
 
+.card-line {
+    width: 100%;
+    height: 1.0mm;
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+    stroke: inherit;
+}
+
+
 .card-box {
     display: inline;
     height: 10mm;
@@ -437,19 +446,7 @@
     display: inline;
 }
 
-
-
 table, th, td {
     font-size: inherit;
     color: black;
   }
-
-  th {
-    border-bottom: .5px solid black;
-
-  }
-
- td {
-    border-bottom: .5px solid black;
-    width:2%; 
- }
